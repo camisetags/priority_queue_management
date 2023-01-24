@@ -1,0 +1,68 @@
+{
+  "info": {
+      "name": "Queue Management",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+      {
+          "name": "GET /jobs",
+          "request": {
+              "url": "http://localhost:3000/jobs",
+              "method": "GET"
+          },
+          "response": []
+      },
+      {
+          "name": "GET /jobs?status=processed",
+          "request": {
+              "url": "http://localhost:3000/jobs?status=processed",
+              "method": "GET"
+          },
+          "response": []
+      },
+      {
+          "name": "POST /jobs",
+          "request": {
+              "url": "http://localhost:3000/jobs",
+              "method": "POST",
+              "header": [
+                  {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                  },
+                  {
+                      "key": "Authorization",
+                      "value": "allow"
+                  }
+              ],
+              "body": {
+                  "mode": "raw",
+                  "raw": "{\"id\":1,\"data\":[1,2,3],\"status\":\"pending\",\"priority\":1}"
+              }
+          },
+          "response": []
+      },
+      {
+          "name": "POST /jobs (Unauthorized)",
+          "request": {
+              "url": "http://localhost:3000/jobs",
+              "method": "POST",
+              "header": [
+                  {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                  },
+                  {
+                      "key": "Authorization",
+                      "value": "deny"
+                  }
+              ],
+              "body": {
+                  "mode": "raw",
+                  "raw": "{\"id\":1,\"data\":[1,2,3],\"status\":\"pending\",\"priority\":1}"
+              }
+          },
+          "response": []
+      }
+  ]
+}
